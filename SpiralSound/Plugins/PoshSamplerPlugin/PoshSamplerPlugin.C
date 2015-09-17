@@ -33,10 +33,10 @@ static const int S3_INPUT = 20;
 
 extern "C" {
    SpiralPlugin* SpiralPlugin_CreateInstance() { return new PoshSamplerPlugin; }
-   char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
+   const char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
    int SpiralPlugin_GetID() { return 32; }
-   string SpiralPlugin_GetGroupName() { return "Delay/Sampling"; }
-}
+   const char * SpiralPlugin_GetGroupName() { return "Delay/Sampling"; }
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

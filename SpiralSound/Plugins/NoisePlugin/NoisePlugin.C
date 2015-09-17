@@ -30,7 +30,7 @@ SpiralPlugin* SpiralPlugin_CreateInstance()
 	return new NoisePlugin;
 }
 
-char** SpiralPlugin_GetIcon()
+const char** SpiralPlugin_GetIcon()
 {
 	return SpiralIcon_xpm;
 }
@@ -40,11 +40,11 @@ int SpiralPlugin_GetID()
 	return 49;
 }
 
-string SpiralPlugin_GetGroupName()
+const char * SpiralPlugin_GetGroupName()
 {
 	return "Oscillators";
 }
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

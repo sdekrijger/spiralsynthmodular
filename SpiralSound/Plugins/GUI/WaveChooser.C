@@ -75,9 +75,9 @@ char *WaveFileName (void) {
             AvailFmt = "{*.wav,*.WAV}";
      #endif
      char *fname;
-     char *title = "Load a wave";
+     const char *title = "Load a wave";
      if (!fc) {
-        fname = ".";
+        fname = (char *)".";
         // as ever, I'm a bit worried that this is never deallocated
         fc = new Fl_File_Chooser (fname, AvailFmt.c_str(), Fl_File_Chooser::CREATE, title);
         fc->callback (callback, 0);

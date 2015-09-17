@@ -30,7 +30,7 @@ SpiralPlugin* SpiralPlugin_CreateInstance()
 	return new LogicPlugin;
 }
 
-char** SpiralPlugin_GetIcon()
+const char** SpiralPlugin_GetIcon()
 {
 	return SpiralIcon_xpm;
 }
@@ -40,11 +40,11 @@ int SpiralPlugin_GetID()
 	return 52;
 }
 
-string SpiralPlugin_GetGroupName()
+const char * SpiralPlugin_GetGroupName()
 {
 	return "Maths/Logic";
 }
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

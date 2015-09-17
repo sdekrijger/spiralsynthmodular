@@ -30,11 +30,11 @@ extern "C" {
 
 SpiralPlugin* SpiralPlugin_CreateInstance() { return new MousePlugin; }
 
-char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
+const char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
 
 int SpiralPlugin_GetID() { return 300; }
 
-// string SpiralPlugin_GetGroupName() { return "InputOutput"; }
+// const char * SpiralPlugin_GetGroupName() { return "InputOutput"; }
 
 }
 

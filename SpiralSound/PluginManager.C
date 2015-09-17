@@ -49,7 +49,7 @@ PluginID PluginManager::LoadPlugin(const char *PluginName)
     }
 		
 	// Link the neccesary functions 
-	char *error;
+	const char *error;
 	
 	NewPlugin->CreateInstance  = (SpiralPlugin*(*)()) dlsym(NewPlugin->Handle, "SpiralPlugin_CreateInstance"); 	
 	
@@ -75,7 +75,7 @@ PluginID PluginManager::LoadPlugin(const char *PluginName)
         return PluginError;
     }  
 	     
-	NewPlugin->GetGroupName  = (string(*)()) dlsym(NewPlugin->Handle, "SpiralPlugin_GetGroupName"); 	
+	NewPlugin->GetGroupName  = (const char*(*)()) dlsym(NewPlugin->Handle, "SpiralPlugin_GetGroupName"); 	
 			
     if ((error = dlerror()) != NULL)
     {
@@ -98,7 +98,7 @@ void PluginManager::UnLoadPlugin(PluginID ID)
 	if (IsValid(ID))
     {
 		dlclose(GetPlugin(ID)->Handle);
-		char *error;				
+		const char *error;				
 	    if ((error = dlerror()) != NULL)
 	    {
 			SpiralInfo::Alert("Error unlinking plugin: \n"+string(error));
@@ -112,7 +112,7 @@ void PluginManager::UnloadAll()
 		 i!=m_PluginVec.end(); i++)
 	{		
 		dlclose((*i)->Handle);
-		char *error;				
+		const char *error;				
 	    if ((error = dlerror()) != NULL)
 	    {
 			SpiralInfo::Alert("Error unlinking plugin: \n"+string(error));

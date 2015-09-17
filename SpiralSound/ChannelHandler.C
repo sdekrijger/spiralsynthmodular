@@ -21,6 +21,9 @@
 #include <cstring>
 #include <stdlib.h>
 
+#include <cstdlib>
+#include <cstring>
+
 using namespace std;
 
 //#define CHANNEL_DEBUG

@@ -41,18 +41,16 @@ using namespace std;
 	return false;     \
 }
 
-extern "C"
-{
-
+extern "C" {
 SpiralPlugin* SpiralPlugin_CreateInstance() { return new DiskWriterPlugin; }
 
-char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
+const char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
 
 int SpiralPlugin_GetID() { return 41; }
 
-string SpiralPlugin_GetGroupName() { return "InputOutput"; }
+const char * SpiralPlugin_GetGroupName() { return "InputOutput"; }
 
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

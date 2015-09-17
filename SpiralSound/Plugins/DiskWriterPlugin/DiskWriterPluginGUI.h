@@ -66,14 +66,14 @@ private:
 
 
 	//// Static Callbacks ////
-	static void cb_Record(Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_Record_i(o); }
-	static void cb_Open  (Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_Open_i(o);   }
+	static void cb_Record(Fl_Button* o, DiskWriterPluginGUI* plugin);
+	static void cb_Open  (Fl_Button* o, DiskWriterPluginGUI* plugin);
 
-	static void cb_16bits(Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_16bits_i(o); }
-	static void cb_24bits(Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_24bits_i(o); }
-	static void cb_32bits(Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_32bits_i(o); }
+	static void cb_16bits(Fl_Button* o, DiskWriterPluginGUI* plugin); 
+	static void cb_24bits(Fl_Button* o, DiskWriterPluginGUI* plugin); 
+	static void cb_32bits(Fl_Button* o, DiskWriterPluginGUI* plugin); 
 
-	static void cb_Stereo(Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_Stereo_i(o); }
+	static void cb_Stereo(Fl_Button* o, DiskWriterPluginGUI* plugin);
 };
 
 #endif

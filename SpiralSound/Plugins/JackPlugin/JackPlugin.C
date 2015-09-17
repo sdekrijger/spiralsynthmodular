@@ -387,7 +387,7 @@ SpiralPlugin* SpiralPlugin_CreateInstance()
 	return new JackPlugin;
 }
 
-char** SpiralPlugin_GetIcon()
+const char** SpiralPlugin_GetIcon()
 {	
 	return SpiralIcon_xpm;
 }
@@ -397,11 +397,11 @@ int SpiralPlugin_GetID()
 	return 31;
 }
 
-string SpiralPlugin_GetGroupName()
+const char * SpiralPlugin_GetGroupName()
 {
 	return "InputOutput";
 }
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

@@ -28,14 +28,13 @@ static const int IN_SHLEN = 2;
 
 static const int OUT_MAIN = 0;
 
-extern "C"
-{
+extern "C" {
 SpiralPlugin* SpiralPlugin_CreateInstance()
 {
 	return new WaveTablePlugin;
 }
 
-char** SpiralPlugin_GetIcon()
+const char** SpiralPlugin_GetIcon()
 {
 	return SpiralIcon_xpm;
 }
@@ -45,11 +44,11 @@ int SpiralPlugin_GetID()
 	return 0x0017;
 }
 
-string SpiralPlugin_GetGroupName()
+const char * SpiralPlugin_GetGroupName()
 {
 	return "Oscillators";
 }
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 
@@ -209,7 +208,7 @@ void WaveTablePlugin::Execute()
 		
 		if (m_CyclePos<0 || m_CyclePos>=m_TableLength) m_CyclePos=0;
 		
-		SetOutput(OUT_MAIN,n,m_Table[m_Type][m_CyclePos]);	
+		SetOutput(OUT_MAIN,n,m_Table[(unsigned char)m_Type][m_CyclePos]);	
 	}
 }
 

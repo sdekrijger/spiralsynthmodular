@@ -34,7 +34,7 @@ SpiralPlugin* SpiralPlugin_CreateInstance()
 	return new FilterPlugin;
 }
 
-char** SpiralPlugin_GetIcon()
+const char** SpiralPlugin_GetIcon()
 {
 	return SpiralIcon_xpm;
 }
@@ -44,11 +44,11 @@ int SpiralPlugin_GetID()
 	return 0x000b;
 }
 
-string SpiralPlugin_GetGroupName()
+const char * SpiralPlugin_GetGroupName()
 {
 	return "Filters/FX";
 }
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

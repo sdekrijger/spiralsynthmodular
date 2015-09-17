@@ -27,13 +27,13 @@ extern "C" {
 
 SpiralPlugin* SpiralPlugin_CreateInstance() { return new LFOPlugin; }
 
-char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
+const char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
 
 int SpiralPlugin_GetID() { return 124; }
 
-string SpiralPlugin_GetGroupName() { return "Oscillators"; }
+const char * SpiralPlugin_GetGroupName() { return "Oscillators"; }
 
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

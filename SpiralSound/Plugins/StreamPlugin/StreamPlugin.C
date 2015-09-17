@@ -22,6 +22,7 @@
 #include "../../NoteTable.h"
 #include <stdio.h>
 #include "../../RiffWav.h"
+#include <cstring>
 
 using namespace std;
 
@@ -29,13 +30,13 @@ extern "C" {
 
 SpiralPlugin* SpiralPlugin_CreateInstance() { return new StreamPlugin; }
 
-char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
+const char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
 
 int SpiralPlugin_GetID() { return 0x0119; }
 
-string SpiralPlugin_GetGroupName() { return "Delay/Sampling"; }
+const char * SpiralPlugin_GetGroupName() { return "Delay/Sampling"; }
 
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 
@@ -257,7 +258,7 @@ void StreamPlugin::StreamIn(istream &s) {
      if (size > 255) size = 255;
      s.ignore (1);
      s.get (m_GUIArgs.FileName, size+1);
-     if (m_GUIArgs.FileName != "None") OpenStream ();
+     if (!strcmp(m_GUIArgs.FileName, "None")) OpenStream ();
        // is it really necessary to load this lot??
      s >> m_Pos;
      s >> m_StreamPos;

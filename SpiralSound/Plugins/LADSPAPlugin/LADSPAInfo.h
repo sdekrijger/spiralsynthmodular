@@ -91,7 +91,7 @@ public:
 		unsigned long   UniqueID;
 		std::string     Name;
 
-		bool operator<(const PluginEntry& pe)
+		bool operator<(const PluginEntry& pe) const
 		{
 			return (Name<pe.Name);
 		}

@@ -29,7 +29,7 @@ SpiralPlugin* SpiralPlugin_CreateInstance()
 	return new SeqSelectorPlugin;
 }
 
-char** SpiralPlugin_GetIcon()
+const char** SpiralPlugin_GetIcon()
 {
 	return SpiralIcon_xpm;
 }
@@ -39,11 +39,11 @@ int SpiralPlugin_GetID()
 	return 0x0015;
 }
 
-string SpiralPlugin_GetGroupName()
+const char * SpiralPlugin_GetGroupName()
 {
 	return "Sequencing";
 }
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

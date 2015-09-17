@@ -26,7 +26,7 @@ using namespace std;
 
 ////////////////////////////////////////////
 
-Fl_WaveDisplay::Fl_WaveDisplay(int x,int y,int w,int h, char *Name) :
+Fl_WaveDisplay::Fl_WaveDisplay(int x,int y,int w,int h, const char *Name) :
 Fl_Widget(x,y,w,h,Name),
 m_Sample(NULL),
 m_StartPos(1),

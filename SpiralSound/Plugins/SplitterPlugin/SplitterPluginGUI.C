@@ -67,6 +67,8 @@ inline void SplitterPluginGUI::cb_Channels_i (Fl_Counter* o)
 	}
 }
 
+void SplitterPluginGUI::cb_Channels(Fl_Counter* o, SplitterPluginGUI* v)  {v->cb_Channels_i(o);}
+
 const string SplitterPluginGUI::GetHelpText(const string &loc)
 {
 	return string("")

@@ -32,7 +32,7 @@ static int Numbers[512];
 
 ////////////////////////////////////////////////////////////////////////
 
-Fl_Canvas::Fl_Canvas(int x, int y, int w, int h, char *name) :
+Fl_Canvas::Fl_Canvas(int x, int y, int w, int h, const char *name) :
 Fl_Group(x,y,w,h,name),
 m_Menu(NULL),
 m_BG(NULL),
@@ -238,7 +238,7 @@ bool widget_intersects_rectangle (Fl_Widget* o, int X, int Y, int W, int H)
 			else
 				height = src2_y2 - src2_y1;
 
-			if ((height == 0))
+			if (height == 0)
 				return false;
 			else
 				return true;

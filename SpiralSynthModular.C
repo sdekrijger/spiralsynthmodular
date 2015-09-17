@@ -122,7 +122,7 @@ void SynthModular::ClearUp()
 		//Stop processing of audio if any
 		if (i->second->m_Device)
 		{
-			if (i->second->m_Device->Kill());
+			i->second->m_Device->Kill();
 		}
 		i->second->m_DeviceGUI->Clear();
 
@@ -259,7 +259,7 @@ void SynthModular::UpdatePluginGUIs()
 			//Stop processing of audio if any
 			if (i->second->m_Device)
 			{
-				if (i->second->m_Device->Kill());
+				i->second->m_Device->Kill(); 
 				erase = false;
 			}
 
@@ -574,12 +574,13 @@ void SynthModular::LoadPlugins (string pluginPath) {
             Fl_Pixmap *tPix = new Fl_Pixmap (PluginManager::Get()->GetPlugin(ID)->GetIcon());
             NewButton->image(tPix->copy(tPix->w(),tPix->h()));
             delete tPix;
-            string GroupName = PluginManager::Get()->GetPlugin(ID)->GetGroupName();
+            const char * gName = PluginManager::Get()->GetPlugin(ID)->GetGroupName();
+            string GroupName(gName);
             Fl_Pack* the_group=NULL;
             // find or create this group, and add an icon
             map<string,Fl_Pack*>::iterator gi = m_PluginGroupMap.find (GroupName);
             if (gi == m_PluginGroupMap.end()) {
-               the_group = new Fl_Pack (m_GroupTab->x(), 16, m_GroupTab->w(), m_GroupTab->h() - 15, GroupName.c_str());
+               the_group = new Fl_Pack (m_GroupTab->x(), 16, m_GroupTab->w(), m_GroupTab->h() - 15, gName);
                the_group->type(FL_HORIZONTAL);
                the_group->labelsize(8);
                the_group->color(SpiralInfo::GUICOL_Button);
@@ -812,7 +813,7 @@ void SynthModular::AddComment(int n)
 
 //////////////////////////////////////////////////////////
 
-void SynthModular::cb_ChangeBufferAndSampleRate_i(long int NewBufferSize, long int NewSamplerate)
+inline void SynthModular::cb_ChangeBufferAndSampleRate_i(long int NewBufferSize, long int NewSamplerate)
 {
 	if (SpiralInfo::BUFSIZE != NewBufferSize)
 	{
@@ -827,6 +828,12 @@ void SynthModular::cb_ChangeBufferAndSampleRate_i(long int NewBufferSize, long i
 		m_HostNeedsUpdate = true;
 	}
 }
+
+void SynthModular::cb_ChangeBufferAndSampleRate(long unsigned int NewBufferSize, long unsigned int NewSamplerate, void *o)
+	{
+		((SynthModular*)o)->cb_ChangeBufferAndSampleRate_i(NewBufferSize, NewSamplerate);
+	}
+
 
 
 void SynthModular::UpdateHostInfo()

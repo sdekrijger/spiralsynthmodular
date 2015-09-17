@@ -29,7 +29,7 @@ SpiralPlugin* SpiralPlugin_CreateInstance()
 	return new FlipflopPlugin;
 }
 
-char** SpiralPlugin_GetIcon()
+const char** SpiralPlugin_GetIcon()
 {
 	return SpiralIcon_xpm;
 }
@@ -39,11 +39,11 @@ int SpiralPlugin_GetID()
 	return 46;
 }
 
-string SpiralPlugin_GetGroupName()
+const char * SpiralPlugin_GetGroupName()
 {
 	return "Maths/Logic";
 }
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

@@ -32,7 +32,7 @@ SpiralPlugin* SpiralPlugin_CreateInstance()
 	return new SplitterPlugin;
 }
 
-char** SpiralPlugin_GetIcon()
+const char** SpiralPlugin_GetIcon()
 {
 	return SpiralIcon_xpm;
 }
@@ -42,11 +42,11 @@ int SpiralPlugin_GetID()
 	return 0x0006;
 }
 
-string SpiralPlugin_GetGroupName()
+const char * SpiralPlugin_GetGroupName()
 {
 	return "Control";
 }
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

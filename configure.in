@@ -1,8 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_INIT(SpiralSynthModular.C)
 
-dnl Automake (can't use AC_CONFIG_HEADER - get complaints!)
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS(config.h)
 
 dnl Checks for programs.
 AC_PROG_CC
@@ -31,8 +30,8 @@ if test $ac_arg_debug = "Y" ; then
 	CFLAGS="-pipe -Wall -O0 -ggdb "
 	CXXFLAGS="-pipe -Wall -O0 -ggdb "
 else
-	CFLAGS="-pipe -Wall -O3 -ffast-math -DNO_DEBUG -Wno-unused "
-	CXXFLAGS="-pipe -Wall -O3 -ffast-math -DNO_DEBUG -Wno-unused "
+	CFLAGS="-pipe -Wall -fPIC -O3 -ffast-math -DNO_DEBUG -Wno-unused "
+	CXXFLAGS="-pipe -Wall -fPIC -O3 -ffast-math -DNO_DEBUG -Wno-unused "
 fi
 
 dnl build plugin list - plugins that do not require an optional component
@@ -196,16 +195,6 @@ AC_SUBST(FLTK_LIBS)
 AC_CHECK_HEADERS(dlfcn.h)
 AC_CHECK_LIB(dl, dlopen)
 
-dnl Do we need png?????
-dnl AC_CHECK_HEADERS(png.h)
-dnl AC_CHECK_LIB(png, png_get_copyright)
-
-dnl This is normally done with libtool but since we aren't using libtool
-dnl yet to it here.
-
-dnl FIXME: forced to add -fPIC here..
-CFLAGS="$CFLAGS -fPIC"
-CXXFLAGS="$CFLAGS -fPIC"
 
 AC_SUBST(CFLAGS)
 AC_SUBST(CXXFLAGS)

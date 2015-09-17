@@ -4,12 +4,12 @@
 
 ####### Compiler, tools and options
 
-CC	=	gcc
-CXX	=	g++
+
+
 CFLAGS	=       @CFLAGS@ @FLTK_CFLAGS@
 CXXFLAGS=       @CXXFLAGS@ @FLTK_CXXFLAGS@
-INCPATH	=	-I/usr/X11R6/include
-LINK	=	g++ -shared
+INCPATH	=	-I/usr/local/include
+LINK	=	$(CXX) -shared
 LFLAGS	=
 LIBS	=	@FLTK_LIBS@ @SFLIBS@
 MOC     = moc

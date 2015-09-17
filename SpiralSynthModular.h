@@ -156,7 +156,7 @@ private:
 	string m_FilePath, m_MergeFilePath;
 
 	// Main GUI stuff
-	void CreateGUI (int xoff=0, int yoff=0, char *name="");
+	void CreateGUI (int xoff=0, int yoff=0, const char *name="");
         Fl_Menu_Bar *m_MainMenu;
         Fl_Pack *m_Topbar, *m_ToolbarPanel, *m_Toolbar;
         Fl_Group *m_GroupFiller;
@@ -220,10 +220,10 @@ private:
 	static void cb_Blocking(void* o, bool Mode);
 	static void cb_UpdatePluginInfo(int ID, void *PluginInfo);
         inline void cb_ChangeBufferAndSampleRate_i(long int NewBufferSize, long int NewSamplerate);
-	static void cb_ChangeBufferAndSampleRate(long unsigned int NewBufferSize, long unsigned int NewSamplerate, void *o)
-	{
-		((SynthModular*)o)->cb_ChangeBufferAndSampleRate_i(NewBufferSize, NewSamplerate);
-	}
+	static void cb_ChangeBufferAndSampleRate(long unsigned int NewBufferSize, long unsigned int NewSamplerate, void *o);
+	//{
+//		((SynthModular*)o)->cb_ChangeBufferAndSampleRate_i(NewBufferSize, NewSamplerate);
+	//}
 	friend istream &operator>>(istream &s, SynthModular &o);
 	friend ostream &operator<<(ostream &s, SynthModular &o);
 };

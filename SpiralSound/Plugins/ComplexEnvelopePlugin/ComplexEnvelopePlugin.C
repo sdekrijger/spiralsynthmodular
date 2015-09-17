@@ -26,7 +26,7 @@ SpiralPlugin* SpiralPlugin_CreateInstance()
 	return new ComplexEnvelopePlugin;
 }
 
-char** SpiralPlugin_GetIcon()
+const char** SpiralPlugin_GetIcon()
 {
 	return SpiralIcon_xpm;
 }
@@ -36,11 +36,11 @@ int SpiralPlugin_GetID()
 	return 33;
 }
 
-string SpiralPlugin_GetGroupName()
+const char * SpiralPlugin_GetGroupName()
 {
 	return "SpiralSound";
 }
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

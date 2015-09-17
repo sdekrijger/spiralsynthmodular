@@ -6,14 +6,12 @@ SHELL = @SHELL@
 
 ####### Compiler, tools and options
 
-CC	=	gcc
-CXX	=	g++
-CFLAGS	=	@CFLAGS@ @FLTK_CFLAGS@
+CFLAGS	=	@CFLAGS@ @FLTK_CFLAGS@ 
 CXXFLAGS=	@CXXFLAGS@ @FLTK_CXXFLAGS@
-INCPATH	=
-LINK	=	g++
+INCPATH	= 
+LINK	=	$(CXX)
 LFLAGS	=
-LIBS	=   @FLTK_LIBS@ -lm -ldl -lpthread
+LIBS	=   @FLTK_LIBS@ -lm -lpthread
 MOC     = moc
 UIC	=
 
@@ -35,7 +33,8 @@ libdir = @libdir@
 infodir = @infodir@
 mandir = @mandir@
 
-SpiralPlugins = $(libdir)/SpiralPlugins
+
+SpiralPlugins = $(DESTDIR)$(libdir)/SpiralPlugins
 
 ####### Files
 
@@ -142,7 +141,7 @@ clean:
 		done;
 
 install: spiralsynthmodular
-	$(INSTALL) spiralsynthmodular $(bindir)
+	$(INSTALL) spiralsynthmodular $(DESTDIR)$(bindir)
 	$(INSTALL) -d $(SpiralPlugins)
 	list='$(SUBDIRS)'; \
 	for subdir in $$list; do \

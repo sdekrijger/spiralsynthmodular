@@ -23,6 +23,7 @@
 
 #include <assert.h>
 #include <limits.h>
+#include <cstring>
 #include <iostream>
 #include <cstring>
 

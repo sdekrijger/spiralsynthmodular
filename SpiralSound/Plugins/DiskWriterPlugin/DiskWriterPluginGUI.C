@@ -165,7 +165,7 @@ inline void DiskWriterPluginGUI::cb_Open_i(Fl_Button* o)
                 strcpy (t, fn);
 		//sprintf(t,"%s",fn);
 
-		if (fn && fn!="")
+		if (fn && fn[0]!=0)
 		{
 			m_GUICH->SetData("Filename",(void*)t);
 			m_GUICH->SetCommand(DiskWriterPlugin::OPENWAV);
@@ -213,6 +213,17 @@ inline void DiskWriterPluginGUI::cb_Stereo_i(Fl_Button* o)
 {
 	m_GUICH->Set("Stereo",o->value());
 }
+
+
+void DiskWriterPluginGUI::cb_Record(Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_Record_i(o); }
+void DiskWriterPluginGUI::cb_Open  (Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_Open_i(o);   }
+void DiskWriterPluginGUI::cb_16bits(Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_16bits_i(o); }
+void DiskWriterPluginGUI::cb_24bits(Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_24bits_i(o); }
+void DiskWriterPluginGUI::cb_32bits(Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_32bits_i(o); }
+void DiskWriterPluginGUI::cb_Stereo(Fl_Button* o, DiskWriterPluginGUI* plugin) { plugin->cb_Stereo_i(o); }
+
+
+
 
 const string DiskWriterPluginGUI::GetHelpText(const string &loc)
 {

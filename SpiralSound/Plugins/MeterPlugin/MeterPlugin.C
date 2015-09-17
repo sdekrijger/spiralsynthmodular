@@ -26,13 +26,13 @@ extern "C" {
 
 SpiralPlugin* SpiralPlugin_CreateInstance() { return new MeterPlugin; }
 
-char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
+const char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
 
 int SpiralPlugin_GetID() { return 123; }
 
-string SpiralPlugin_GetGroupName() { return "InputOutput"; }
+const char * SpiralPlugin_GetGroupName() { return "InputOutput"; }
 
-}
+} /* extern "C" */
 
 MeterPlugin::MeterPlugin():
 m_Data (NULL),

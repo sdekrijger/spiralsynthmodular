@@ -22,16 +22,16 @@
 
 using namespace std;
 
-extern "C"
-{
+extern "C" {
+
 SpiralPlugin* SpiralPlugin_CreateInstance() { return new ScopePlugin; }
 
-char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
+const char** SpiralPlugin_GetIcon() { return SpiralIcon_xpm; }
 
 int SpiralPlugin_GetID() { return 0x0001; }
 
-string SpiralPlugin_GetGroupName() { return "InputOutput"; }
-}
+const char * SpiralPlugin_GetGroupName() { return "InputOutput"; }
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

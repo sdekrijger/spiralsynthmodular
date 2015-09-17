@@ -20,6 +20,7 @@
 #define	_ISOC9X_SOURCE	1
 #define _ISOC99_SOURCE	1
 #include  <math.h>
+#define lrintf(flt)             ((int) (flt))
 
 #include <sys/types.h>
 #include <stdio.h>
@@ -27,7 +28,7 @@
 #include <unistd.h>
 #include <limits.h>
 #if defined (__FreeBSD__)
-	#include <machine/soundcard.h>
+	#include <sys/soundcard.h>
 #else
 #if defined (__NetBSD__) || defined (__OpenBSD__)
 	#include <soundcard.h>            /* OSS emulation */
@@ -65,14 +66,13 @@ OutputPlugin::Mode OutputPlugin::m_Mode=NO_MODE;
 									return false;     \
 								}
 
-extern "C"
-{
+extern "C" {
 SpiralPlugin* SpiralPlugin_CreateInstance()
 {
 	return new OutputPlugin;
 }
 
-char** SpiralPlugin_GetIcon()
+const char** SpiralPlugin_GetIcon()
 {	
 	return SpiralIcon_xpm;
 }
@@ -82,11 +82,11 @@ int SpiralPlugin_GetID()
 	return 0x0000;
 }
 
-string SpiralPlugin_GetGroupName()
+const char * SpiralPlugin_GetGroupName()
 {
 	return "InputOutput";
 }
-}
+} /* extern "C" */
 
 ///////////////////////////////////////////////////////
 

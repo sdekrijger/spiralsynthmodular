@@ -62,7 +62,7 @@ SpiralPluginGUI(w,h,o,ch)
         m_Mul->selection_color (Info->GUI_COLOUR);
  	m_Mul->callback ((Fl_Callback*)cb_Mul);
 
-	m_Div = new Fl_Button (95, 50, 20, 20, "÷");
+	m_Div = new Fl_Button (95, 50, 20, 20, "/");
         m_Div->type (FL_RADIO_BUTTON);
         m_Div->box (FL_PLASTIC_UP_BOX);
         m_Div->color (Info->GUI_COLOUR);

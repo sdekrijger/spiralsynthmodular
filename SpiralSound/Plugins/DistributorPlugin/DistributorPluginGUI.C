@@ -67,6 +67,8 @@ inline void DistributorPluginGUI::cb_Chans_i (Fl_Counter* o)
 	}
 }
 
+void DistributorPluginGUI::cb_Chans(Fl_Counter* o, DistributorPluginGUI* v)  {v->cb_Chans_i(o);}
+
 const string DistributorPluginGUI::GetHelpText(const string &loc)
 {
 	return string("")
