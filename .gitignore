@@ -1,0 +1,10 @@
+*.orig
+*.o
+*.so
+config*
+*.cache
+Makefile
+SpiralSound/PluginList.txt
+SpiralSynthPluginLocation.h
+spiralsynthmodular
+
